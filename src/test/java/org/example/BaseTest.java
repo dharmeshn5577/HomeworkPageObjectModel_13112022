@@ -15,7 +15,7 @@ public class BaseTest extends Utils{
     }
 
 
-//    @AfterMethod    // used AfterMethod TestNG function to run this method after running every method
+    @AfterMethod    // used AfterMethod TestNG function to run this method after running every method
     public void quitBrowser(){
         driverManager.closeBrowser();   // closeBrowser method called from DriverManager class
     }
