@@ -14,6 +14,7 @@ public class RegistrationResultPage extends Utils{
     }
 
     public void verifyUserRegistrationIsCompleted(){
-        getTextElement(_registrationCompletedMessage);
+       String expectedRegistrationMessage = "Your registration completed";
+       Assert.assertEquals(getTextElement(_registrationCompletedMessage), expectedRegistrationMessage, "Registration Failed");
     }
 }
