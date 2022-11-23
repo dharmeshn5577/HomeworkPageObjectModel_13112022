@@ -1,6 +1,7 @@
 package org.example;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
@@ -24,6 +25,7 @@ public class DriverManager extends Utils {
     }
 
     public void closeBrowser(){
+
         driver.quit();  // used inbuilt quit method to close the tab(s) of browser opened by ChromeDriver
     }
 

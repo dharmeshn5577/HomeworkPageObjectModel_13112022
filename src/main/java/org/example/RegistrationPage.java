@@ -22,14 +22,15 @@ public class RegistrationPage extends Utils{
 
 
 public void verifyUserIsOnRegistrationPage(){
-//    used wait function to wait for URL to be open and verify URL by using assertTrue function
+//    used explicit wait to wait for URL to be open
     waitForUrlToBe("https://demo.nopcommerce.com/register?returnUrl=%2F", 5);
+    // verified user is on correct page by using assertTrue method
     Assert.assertTrue(driver.getCurrentUrl().contains("register?returnUrl=%2F"), "User is not on registration page.");
 }
 
     public void enterRegistrationDetails(){
 //  by using inherit called clickElement,typeText and dropdown list methods from Utils class
-    clickElement(_selectGenderMale);
+    clickOnElement(_selectGenderMale);
     typeText(_firstName, "Ram");
     typeText(_lastName, "Patel");
     selectFromDropDownList_ByIndex(_birthDay, 5);
@@ -39,7 +40,7 @@ public void verifyUserIsOnRegistrationPage(){
     typeText(_companyName, "Patel Trading Co. Ltd.");
     typeText(_password, "Abc#123");
     typeText(_confirmPassword, "Abc#123");
-    clickElement(_registerButton);
+    clickOnElement(_registerButton);
 
     }
 }
