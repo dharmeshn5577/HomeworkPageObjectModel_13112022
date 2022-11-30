@@ -5,6 +5,10 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,6 +45,57 @@ public class Utils extends BasePage{
         return driver.findElement(by).getText();
     }
 
+
+    public static void moveToElement(By by){
+        // Import the Actions and Action classes and created new Actions object
+        Actions builder = new Actions(driver);
+        WebElement element = driver.findElement(by);
+        // Created a hover action using the Actions object
+        Action mouseHoverOnElement = builder.moveToElement(element).build();
+        // Used the inbuilt perform() method to execute the Action tasks
+        mouseHoverOnElement.perform();
+    }
+
+    public static void moveToElementAndClick(By by){
+        Actions builder = new Actions(driver);
+        WebElement element = driver.findElement(by);
+        // Created a click action using the Actions object
+        Action mouseHoverOnElement = builder.moveToElement(element).click().build();
+        mouseHoverOnElement.perform();
+    }
+
+    public static void moveToElementAndTypeText(By by, String textToFill){
+        Actions builder = new Actions(driver);
+        WebElement element = driver.findElement(by);
+        // Created a sendKes action using the Actions object to type text
+        Action mouseHoverOnElement = builder.moveToElement(element).sendKeys(textToFill).build();
+        mouseHoverOnElement.perform();
+    }
+
+    public static void getCSSValue(By by, String propertyName){
+        Actions builder = new Actions(driver);
+        WebElement element = driver.findElement(by);
+        // Created a hover action using the Actions object
+        Action mouseHoverOnElement = builder.moveToElement(element).build();
+        // Capture desired CSS key value before performing action
+        String beforeHoverCSSKeyValue = element.getCssValue(propertyName);
+//        System.out.println(beforeHoverCSSKeyValue);
+        if (propertyName.contains("color")){
+        String beforeHoverCSSKeyValue_hex = Color.fromString(beforeHoverCSSKeyValue).asHex();
+        System.out.println("Before Hover Color: " +beforeHoverCSSKeyValue_hex);
+        }
+
+        // Used the inbuilt perform() method to execute the Action tasks
+        mouseHoverOnElement.perform();
+        // Capture desired CSS key value after performing action
+        String afterHoverCSSKeyValue = element.getCssValue(propertyName);
+//        System.out.println(afterHoverCSSKeyValue);
+        if (propertyName.contains("color")){
+            String afterHoverCSSKeyValue_hex = Color.fromString(afterHoverCSSKeyValue).asHex();
+        System.out.println("After Hover Color: " +afterHoverCSSKeyValue_hex);
+        }
+
+    }
     // created static, no return type, with parameter method to select from drop down list by using index
     // also used select class from selenium to perform selection action
     public static void selectFromDropDownList_ByIndex(By by, int indexNumber){

@@ -1,6 +1,6 @@
 package org.example;
 
-import com.sun.java.swing.plaf.windows.resources.windows;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 

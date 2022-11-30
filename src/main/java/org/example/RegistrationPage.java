@@ -31,15 +31,15 @@ public void verifyUserIsOnRegistrationPage(){
     public void enterRegistrationDetails(){
 //  by using inherit called clickElement,typeText and dropdown list methods from Utils class
     clickOnElement(_selectGenderMale);
-    typeText(_firstName, "Ram");
-    typeText(_lastName, "Patel");
-    selectFromDropDownList_ByIndex(_birthDay, 5);
-    selectFromDropDownList_ByVisibleText(_birthMonth, "May");
-    selectFromDropDownList_ByValue(_birthYear, "2011");
-    typeText(_email, generateUniqueEmailID());
-    typeText(_companyName, "Patel Trading Co. Ltd.");
-    typeText(_password, "Abc#123");
-    typeText(_confirmPassword, "Abc#123");
+    typeText(_firstName, LoadProperty.getProperty("FirstName"));
+    typeText(_lastName, LoadProperty.getProperty("LastName"));
+    selectFromDropDownList_ByValue(_birthDay, LoadProperty.getProperty("DOBDay"));
+    selectFromDropDownList_ByVisibleText(_birthMonth, LoadProperty.getProperty("DOBMonth"));
+    selectFromDropDownList_ByValue(_birthYear, LoadProperty.getProperty("DOBYear"));
+    typeText(_email, LoadProperty.getProperty("EmailLP")+getTimeStamp()+LoadProperty.getProperty("EmailDP"));
+    typeText(_companyName, LoadProperty.getProperty("CompanyName"));
+    typeText(_password, LoadProperty.getProperty("Password"));
+    typeText(_confirmPassword, LoadProperty.getProperty("ConfirmPassword"));
     clickOnElement(_registerButton);
 
     }

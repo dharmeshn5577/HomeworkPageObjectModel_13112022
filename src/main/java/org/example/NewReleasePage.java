@@ -27,11 +27,12 @@ public class NewReleasePage extends Utils{
 
     public void verifyLatestCommentShouldAppearAtTheBottomOfTheList() {
         // use JavaScriptExecutor interface to scroll down page to capture bottom added comment
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // This  will scroll down the page by  5000 pixel vertical
-        js.executeScript("window.scrollBy(0,5000)");
+        JavascriptExecutor scroll = (JavascriptExecutor) driver;
+        // This  will scroll down the page by 5000 pixel vertical
+        scroll.executeScript("window.scrollBy(0,5000)");
 
         String lastCommentsTitle = new String();
+
         // created arrayList of WebElement to store all added comments title
         List<WebElement> commentsTitleList = driver.findElements(By.className("comment-title"));
 //        System.out.println("Total added comments: " + commentsTitleList.size());
@@ -39,11 +40,11 @@ public class NewReleasePage extends Utils{
         // used for each loop to find all comments titles
         for (WebElement element : commentsTitleList)
             // get the last added comment title
-           lastCommentsTitle = element.getText();
-//        System.out.println(lastCommentsTitle);
+            lastCommentsTitle = element.getText();
+//            System.out.println(lastCommentsTitle);
 
         // with the use of assert compare our comment title with captured last comment title
-            Assert.assertEquals(lastCommentsTitle,"8 DN Products", "Added comment cannot found");
-
+        Assert.assertEquals(lastCommentsTitle,"8 DN Products", "Added comment cannot found");
         }
     }
+

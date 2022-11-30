@@ -13,6 +13,8 @@ public class TestSuit extends BaseTest {
     AppleMacBookPro13InchPage appleMacBookPro13InchPage = new AppleMacBookPro13InchPage();
     EmailAFriendPage emailAFriendPage = new EmailAFriendPage();
     NewReleasePage newReleasePage = new NewReleasePage();
+    DesktopsPage desktopsPage = new DesktopsPage();
+    SearchResultPage searchResultPage = new SearchResultPage();
 
     @Test       // used test annotation feature of TestNG to run multiple test cases in one class
     public void verifyUserShouldAbleToRegisterSuccessfully() {
@@ -81,14 +83,31 @@ public class TestSuit extends BaseTest {
         newReleasePage.verifyLatestCommentShouldAppearAtTheBottomOfTheList();
     }
 
-//    @Test
-//    public void verifyAllListedProductHaveAddToCartButton(){
-//        // navigate to the Electronics page
-//        homepage.clickOnElectronicsCategory();
-//        // Navigate to Camera & Photo page
-//        electronicsPage.clickOnCameraAndPhotoSubCategory();
-//        // check each listed product add to cart button
-//        cameraAndPhotoPage.verifyAllProductsHaveAddToCartButton();
-//    }
+    @Test
+    public void verifyAllListedProductHaveAddToCartButton(){
+        // navigate to the Electronics page
+        homepage.clickOnElectronicsCategory();
+        // Navigate to Camera & Photo page
+        electronicsPage.clickOnCameraAndPhotoSubCategory();
+        // check each listed product add to cart button
+        cameraAndPhotoPage.verifyAllProductsHaveAddToCartButton();
+    }
 
+    @Test
+    public void verifyUserShouldBeAbleToNavigateDesktopsPageByHoveringOnComputersCategory(){
+        homepage.navigateToDesktopsSubCategoryPage();
+        desktopsPage.verifyUserNavigateToDesktopsPage();
+    }
+
+    @Test
+    public void verifyCategoriesTextColorIsChangesAfterHoveringOnElement(){
+        homepage.captureAndVerifyTextColorIsChangesAfterHover();
+    }
+
+    @Test
+    public void verifySearchFunctionalityWorkingProperly(){
+        homepage.verifyUserShouldAbleToSearch();
+        searchResultPage.navigateToSearchResultPageAndVerifyReslutShowsAccordingly();
+
+    }
 }
