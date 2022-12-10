@@ -12,6 +12,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestResult;
 
 import java.io.File;
@@ -43,6 +44,7 @@ public class Utils extends BasePage{
     // created static String return type getTextElement method to capture text action
     public static String getTextFromElement(By by){
         return driver.findElement(by).getText();
+
     }
 
 
@@ -135,6 +137,12 @@ public class Utils extends BasePage{
         wait.until(ExpectedConditions.urlToBe(url));
     }
 
+    public static void presenceOfElementLocated(By by, int waitTimeInSeconds){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTimeInSeconds));
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+
+    }
+
     public static void screenshotName( ITestResult result) {
        result.getName();
 
@@ -164,4 +172,8 @@ public class Utils extends BasePage{
 //            System.out.println("Alert is not pop up.");
 //        else
 //    }
+
+    public static void assertCurrentUrl(String categoryLink){
+        Assert.assertTrue(driver.getCurrentUrl().contains(categoryLink));
+    }
 }

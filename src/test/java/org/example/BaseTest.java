@@ -12,14 +12,14 @@ public class BaseTest extends Utils{
 
 
     @BeforeMethod       // used BeforeMethod TestNG function to run this method before running every method
-    public void startBrowser(){
+    public void setUp(){
     driverManager.openBrowser();    // openBrowser method called from DriverManager class
     }
 
 
 
     @AfterMethod    // used AfterMethod TestNG function to run this method after running every method
-    public void quitBrowser(ITestResult result){
+    public void tearDown(ITestResult result){
         if (!result.isSuccess()){
             captureScreenshot(result.getName());
         }

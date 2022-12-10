@@ -16,11 +16,11 @@ public class TestSuit extends BaseTest {
     DesktopsPage desktopsPage = new DesktopsPage();
     SearchResultPage searchResultPage = new SearchResultPage();
 
-    @Test       // used test annotation feature of TestNG to run multiple test cases in one class
+    @Test      // used test annotation feature of TestNG to run multiple test cases in one class
     public void verifyUserShouldAbleToRegisterSuccessfully() {
         homepage.clickOnRegistrationButton();
         registrationPage.verifyUserIsOnRegistrationPage();
-        registrationPage.enterRegistrationDetails();
+        registrationPage.enterRegistrationDetailsAndClickOnRegisterButton();
         registrationResultPage.verifyUserIsOnRegistrationResultPage();
         registrationResultPage.verifyUserRegistrationIsCompleted();
 
@@ -38,29 +38,29 @@ public class TestSuit extends BaseTest {
     }
 
     @Test
-    public void verifyCorrectCurrencyDisplayedAccordingToSelectedCurrency(){
+    public void verifyCorrectCurrencyDisplayedAccordingToSelectedCurrency() {
         homepage.verifyAllProductsHaveUSDollarCurrencySymbolWhenUSDollarSelected();
         homepage.verifyAllProductsHaveEuroCurrencySymbolWhenEuroSelected();
     }
 
     @Test
-    public void verifyAlertShouldAppearWhenClickOnVoteButtonWithoutSelection(){
+    public void verifyAlertShouldAppearWhenClickOnVoteButtonWithoutSelection() {
         homepage.verifyAlertPopUpForVoteButton();
     }
 
     @Test
-    public void verifyUserShouldNavigateToFacebookPageWhenCLickOnFacebookIcon(){
+    public void verifyUserShouldNavigateToFacebookPageWhenCLickOnFacebookIcon() {
         homepage.userShouldNavigateToFacebookPage();
-       }
+    }
 
     @Test
-    public void verifyRegisteredUserCanReferAProductToFriendSuccessfully(){
+    public void verifyRegisteredUserCanReferAProductToFriendSuccessfully() {
         //click on register button
         homepage.clickOnRegistrationButton();
         // Navigate to registration page
         registrationPage.verifyUserIsOnRegistrationPage();
         //Fill all registration details
-        registrationPage.enterRegistrationDetails();
+        registrationPage.enterRegistrationDetailsAndClickOnRegisterButton();
         //verify user is on registration result page
         registrationResultPage.verifyUserIsOnRegistrationResultPage();
         //verify registration done successfully and click on continue button
@@ -74,7 +74,7 @@ public class TestSuit extends BaseTest {
     }
 
     @Test
-    public void verifyUserShouldAbleToPutCommentOnNewReleaseAndCommentShouldDisplayAtTheBottomOfTheAllPreviousComments(){
+    public void verifyUserShouldAbleToPutCommentOnNewReleaseAndCommentShouldDisplayAtTheBottomOfTheAllPreviousComments() {
         //Navigate to new release page
         homepage.navigateToNewReleasePage();
         //fill comments details and verify comment added successfully
@@ -84,7 +84,7 @@ public class TestSuit extends BaseTest {
     }
 
     @Test
-    public void verifyAllListedProductHaveAddToCartButton(){
+    public void verifyAllListedProductHaveAddToCartButton() {
         // navigate to the Electronics page
         homepage.clickOnElectronicsCategory();
         // Navigate to Camera & Photo page
@@ -94,18 +94,18 @@ public class TestSuit extends BaseTest {
     }
 
     @Test
-    public void verifyUserShouldBeAbleToNavigateDesktopsPageByHoveringOnComputersCategory(){
+    public void verifyUserShouldBeAbleToNavigateDesktopsPageByHoveringOnComputersCategory() {
         homepage.navigateToDesktopsSubCategoryPage();
         desktopsPage.verifyUserNavigateToDesktopsPage();
     }
 
     @Test
-    public void verifyCategoriesTextColorIsChangesAfterHoveringOnElement(){
+    public void verifyCategoriesTextColorIsChangesAfterHoveringOnElement() {
         homepage.captureAndVerifyTextColorIsChangesAfterHover();
     }
 
     @Test
-    public void verifySearchFunctionalityWorkingProperly(){
+    public void verifySearchFunctionalityWorkingProperly() {
         homepage.verifyUserShouldAbleToSearch();
         searchResultPage.navigateToSearchResultPageAndVerifyReslutShowsAccordingly();
 

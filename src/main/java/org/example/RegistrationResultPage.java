@@ -12,12 +12,14 @@ public class RegistrationResultPage extends Utils{
     public void verifyUserIsOnRegistrationResultPage() {
         waitForUrlToBe("https://demo.nopcommerce.com/registerresult/1?returnUrl=/", 10);
         // verified user is on correct page by using assertTrue method
-        Assert.assertTrue(driver.getCurrentUrl().contains("registerresult/1?returnUrl=/"), "User is not on registration result page.");
+        Assert.assertTrue(driver.getCurrentUrl().contains("registerresult/1?returnUrl=/"),
+                "User is not on registration result page.");
     }
 
     public void verifyUserRegistrationIsCompleted(){
         String expectedRegistrationMessage = "Your registration completed";
-        Assert.assertEquals(getTextFromElement(_registrationCompletedMessage), expectedRegistrationMessage, "Registration Failed");
+        Assert.assertEquals(getTextFromElement(_registrationCompletedMessage), expectedRegistrationMessage,
+                "Registration Failed");
         clickOnElement(_continueButton);
     }
 }

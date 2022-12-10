@@ -111,7 +111,7 @@ public class Homepage extends Utils {
         // Created a hover action using the Actions object
         Action mouseHoverOnElement = builder.moveToElement(element).build();
 
-        String expectedBeforeHoverCategoryTextColor_hex = LoadProperty.getProperty
+        String expectedBeforeHoverCategoryTextColor_hex = LoadProp.getProperty
                 ("BeforeHoverCategoryTextColor_hex");
         // Capture desired CSS key value before performing action
         String beforeHoverCSSKeyValue = element.getCssValue("color");
@@ -125,7 +125,7 @@ public class Homepage extends Utils {
         // Used the inbuilt perform() method to execute the Action tasks
         mouseHoverOnElement.perform();
 
-        String expectedAfterHoverCategoryTextColor_hex = LoadProperty.getProperty
+        String expectedAfterHoverCategoryTextColor_hex = LoadProp.getProperty
                 ("AfterHoverCategoryTextColor_hex");
         // Capture desired CSS key value after performing action
         String afterHoverCSSKeyValue = element.getCssValue("color");
@@ -141,8 +141,14 @@ public class Homepage extends Utils {
 
     public void verifyUserShouldAbleToSearch(){
         moveToElementAndClick(_searchBoxField);
-        moveToElementAndTypeText(_searchBoxField, LoadProperty.getProperty("SearchText"));
+        moveToElementAndTypeText(_searchBoxField, LoadProp.getProperty("SearchText"));
         waitForElementToBeClickable(_searchBoxField, 10);
         moveToElementAndClick(_searchButton);
+    }
+
+    public void iClickOnLink(String categoryName) {
+
+        clickOnElement(By.linkText(categoryName));
+
     }
 }

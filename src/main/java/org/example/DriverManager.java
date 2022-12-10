@@ -13,18 +13,19 @@ import java.util.HashMap;
 
 
 public class DriverManager extends Utils {
-    public static final String USERNAME = LoadProperty.getProperty("BROWSERSTACK_USERNAME");
-    public static final String AUTOMATE_KEY = LoadProperty.getProperty("BROWSERSTACK_ACCESS_KEY");
+    public static final String USERNAME = LoadProp.getProperty("BROWSERSTACK_USERNAME");
+    public static final String AUTOMATE_KEY = LoadProp.getProperty("BROWSERSTACK_ACCESS_KEY");
     public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    String browserName = LoadProperty.getProperty("BrowserName");
+    String browserName = LoadProp.getProperty("BrowserName");
     //    String browserName = System.getProperty("browser");
-    boolean runIncloud = Boolean.parseBoolean(LoadProperty.getProperty("Cloud"));
+    boolean runIncloud = Boolean.parseBoolean(LoadProp.getProperty("Cloud"));
     MutableCapabilities capabilities = new MutableCapabilities();
 
     //    String browserName = LoadProperty.getProperty("BrowserName");
     public void openBrowser() {
-        // Run in cloud
+        // Running in cloud
         if (runIncloud) {
+            System.out.println("Running in cloud");
             // Connect to cloud
             if (browserName.equalsIgnoreCase("Edge")) {
                 // Connect with browserstack
@@ -61,6 +62,7 @@ public class DriverManager extends Utils {
                 }
             }
         } else {
+            System.out.println("Running Locally");
             // Run in locally
             if (browserName.equalsIgnoreCase("Chrome")) {
                 // set driver path for Chrome browser
@@ -85,7 +87,7 @@ public class DriverManager extends Utils {
         // used implicitWait timeout feature to instruct webDriver to wait till 2 seconds before sending test case fail exception
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         // used get method with driver to navigate to the website
-        driver.get(LoadProperty.getProperty("Homepage_url"));
+        driver.get(LoadProp.getProperty("Homepage_url"));
 //        driver.get("http://omayo.blogspot.com/");
 
     }
