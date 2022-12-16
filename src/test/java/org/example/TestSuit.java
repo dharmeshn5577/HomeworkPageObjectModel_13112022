@@ -16,7 +16,8 @@ public class TestSuit extends BaseTest {
     DesktopsPage desktopsPage = new DesktopsPage();
     SearchResultPage searchResultPage = new SearchResultPage();
 
-    @Test      // used test annotation feature of TestNG to run multiple test cases in one class
+    @Test   (groups = {"Smoke", "Regression", "Sanity"})
+    // used test annotation feature of TestNG to run multiple test cases in one class
     public void verifyUserShouldAbleToRegisterSuccessfully() {
         homepage.clickOnRegistrationButton();
         registrationPage.verifyUserIsOnRegistrationPage();
@@ -27,7 +28,7 @@ public class TestSuit extends BaseTest {
 //      waitForUrlToBe("http://omayo.blogspot.com/", 2);
     }
 
-    @Test
+    @Test   (groups = {"Regression"})
     public void verifyEachProductsHaveTitleOnCameraAndPhotoPage() {
         // navigate to the Electronics page
         homepage.clickOnElectronicsCategory();
@@ -37,23 +38,23 @@ public class TestSuit extends BaseTest {
         cameraAndPhotoPage.getTitlesOfAllListedProducts();
     }
 
-    @Test
+    @Test   (groups = {"Smoke", "Regression"})
     public void verifyCorrectCurrencyDisplayedAccordingToSelectedCurrency() {
         homepage.verifyAllProductsHaveUSDollarCurrencySymbolWhenUSDollarSelected();
         homepage.verifyAllProductsHaveEuroCurrencySymbolWhenEuroSelected();
     }
 
-    @Test
+    @Test(groups = {"Regression"})
     public void verifyAlertShouldAppearWhenClickOnVoteButtonWithoutSelection() {
         homepage.verifyAlertPopUpForVoteButton();
     }
 
-    @Test
+    @Test   (groups = {"Regression"})
     public void verifyUserShouldNavigateToFacebookPageWhenCLickOnFacebookIcon() {
         homepage.userShouldNavigateToFacebookPage();
     }
 
-    @Test
+    @Test   (groups = {"Regression"})
     public void verifyRegisteredUserCanReferAProductToFriendSuccessfully() {
         //click on register button
         homepage.clickOnRegistrationButton();
@@ -73,7 +74,7 @@ public class TestSuit extends BaseTest {
         emailAFriendPage.verifyUserShouldAbleToReferProductToFriend();
     }
 
-    @Test
+    @Test   (groups = {"Regression"})
     public void verifyUserShouldAbleToPutCommentOnNewReleaseAndCommentShouldDisplayAtTheBottomOfTheAllPreviousComments() {
         //Navigate to new release page
         homepage.navigateToNewReleasePage();
@@ -83,7 +84,7 @@ public class TestSuit extends BaseTest {
         newReleasePage.verifyLatestCommentShouldAppearAtTheBottomOfTheList();
     }
 
-    @Test
+    @Test   (groups = {"Regression"})
     public void verifyAllListedProductHaveAddToCartButton() {
         // navigate to the Electronics page
         homepage.clickOnElectronicsCategory();
@@ -93,7 +94,7 @@ public class TestSuit extends BaseTest {
         cameraAndPhotoPage.verifyAllProductsHaveAddToCartButton();
     }
 
-    @Test
+    @Test   (groups = {"Smoke","Regression"})
     public void verifyUserShouldBeAbleToNavigateDesktopsPageByHoveringOnComputersCategory() {
         homepage.navigateToDesktopsSubCategoryPage();
         desktopsPage.verifyUserNavigateToDesktopsPage();

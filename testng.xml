@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/hares/IdeaProjects/PageObjectModel">
+
+       <groups>
+           <run>
+               <include name="Smoke"/>
+<!--               <include name="Regression"/>-->
+<!--               <include name="Sanity"/>-->
+           </run>
+       </groups>
+        <classes>
+            <class name="org.example.TestSuit">
+<!--                <methods>-->
+<!--                    <include name="verifyEachProductsHaveTitleOnCameraAndPhotoPage"/>-->
+<!--                    <include name="verifyCorrectCurrencyDisplayedAccordingToSelectedCurrency"/>-->
+<!--                    <include name="verifyAlertShouldAppearWhenClickOnVoteButtonWithoutSelection"/>-->
+<!--                    <include name="verifyUserShouldNavigateToFacebookPageWhenCLickOnFacebookIcon"/>-->
+<!--                    <include name="verifyRegisteredUserCanReferAProductToFriendSuccessfully"/>-->
+<!--                    <include-->
+<!--                            name="verifyUserShouldAbleToPutCommentOnNewReleaseAndCommentShouldDisplayAtTheBottomOfTheAllPreviousComments"/>-->
+<!--                    <include name="verifyAllListedProductHaveAddToCartButton"/>-->
+<!--                    <include name="verifyUserShouldBeAbleToNavigateDesktopsPageByHoveringOnComputersCategory"/>-->
+<!--                    <include name="verifyCategoriesTextColorIsChangesAfterHoveringOnElement"/>-->
+<!--                    <include name="verifySearchFunctionalityWorkingProperly"/>-->
+<!--                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>
